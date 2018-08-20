@@ -1,4 +1,4 @@
-import nimscin/[Scintilla, SciLexer]
+import nimscintilla/[Scintilla, SciLexer]
 
 if Scintilla_RegisterClasses(nil) == 0:
   echo "Failed to init"

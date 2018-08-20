@@ -29,7 +29,7 @@ proc TranslateMessage*(lpMsg: pointer): int {.stdcall, dynlib: "user32", importc
 
 proc DispatchMessageW*(lpMsg: pointer): pointer {.stdcall, dynlib: "user32", importc.}
 
-import nimscin/[Scintilla, SciLexer]
+import nimscintilla/[Scintilla, SciLexer]
 
 if Scintilla_RegisterClasses(nil) == 0:
   echo "Failed to init"

@@ -21,13 +21,13 @@ if detectOs(Windows):
     ext = ".exe"
 
 task setup, "Download and generate":
-    exec cmd & "nimgen nimscin.cfg"
+    exec cmd & "nimgen nimscintilla.cfg"
 
 before install:
     setupTask()
 
-task test, "Test nimscin":
+task test, "Test nimscintilla":
     exec "nim cpp -r tests/tscin.nim"
 
-task testfull, "Test nimscin":
+task testfull, "Test nimscintilla":
     exec "nim cpp -r tests/tscinfull.nim"
