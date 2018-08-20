@@ -1,0 +1,5 @@
+nimscin
+nimcache
+*.exe
+*.swp
+tscin*
