@@ -21,6 +21,8 @@ if detectOs(Windows):
     ext = ".exe"
 
 task setup, "Download and generate":
+    withDir "..":
+        exec cmd & "nimble install nimgen -y"
     exec cmd & "nimgen nimscintilla.cfg"
 
 before install:
