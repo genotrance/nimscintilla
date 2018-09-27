@@ -14,22 +14,17 @@ requires "nimgen >= 0.4.0"
 import distros
 
 var cmd = ""
-var ldpath = ""
-var ext = ""
 if detectOs(Windows):
-    cmd = "cmd /c "
-    ext = ".exe"
+  cmd = "cmd /c "
 
 task setup, "Download and generate":
-    withDir "..":
-        exec cmd & "nimble install nimgen -y"
-    exec cmd & "nimgen nimscintilla.cfg"
+  exec cmd & "nimgen nimscintilla.cfg"
 
 before install:
-    setupTask()
+  setupTask()
 
 task test, "Test nimscintilla":
-    exec "nim cpp -r tests/tscin.nim"
+  exec "nim cpp -r tests/tscin.nim"
 
 task testfull, "Test nimscintilla":
-    exec "nim cpp -r tests/tscinfull.nim"
+  exec "nim cpp -r tests/tscinfull.nim"
