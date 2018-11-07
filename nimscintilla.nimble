@@ -11,14 +11,17 @@ skipDirs = @["tests"]
 
 requires "nimgen >= 0.4.0"
 
-import distros
+var
+  name = "nimscintilla"
+  cmd = when defined(Windows): "cmd /c " else: ""
 
-var cmd = ""
-if detectOs(Windows):
-  cmd = "cmd /c "
+mkDir(name)
 
-task setup, "Download and generate":
-  exec cmd & "nimgen nimscintilla.cfg"
+task setup, "Checkout and generate":
+  if gorgeEx(cmd & "nimgen").exitCode != 0:
+    withDir(".."):
+      exec "nimble install nimgen -y"
+  exec cmd & "nimgen " & name & ".cfg"
 
 before install:
   setupTask()
@@ -28,3 +31,4 @@ task test, "Test nimscintilla":
 
 task testfull, "Test nimscintilla":
   exec "nim cpp -r tests/tscinfull.nim"
+
