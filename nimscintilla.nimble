@@ -5,7 +5,7 @@ author        = "genotrance"
 description   = "Scintilla wrapper for Nim"
 license       = "MIT"
 
-skipDirs = @["tests"]
+skipDirs = @["tests", "helpers"]
 
 # Dependencies
 
